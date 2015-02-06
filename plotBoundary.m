@@ -1,7 +1,7 @@
-function [z] = plotBoundary(theta,scale)
+function [C] = plotBoundary(theta,scale)
 
-u = linspace(-1, 1, 50)*scale;
-v = linspace(-1, 1, 50)*scale;
+u = linspace(-1, 1, 100)*scale;
+v = linspace(-1, 1, 100)*scale;
 
 z = zeros(length(u), length(v));
 
@@ -11,6 +11,6 @@ for i = 1:length(u)
     end
 end
 z = z'; 
-contour(u, v, z, [0, 0], 'LineWidth', 2)
+[C,h]=contour(u, v, z, [0, 0], 'LineWidth', 2)
 
 end
