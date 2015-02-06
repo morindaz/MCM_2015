@@ -1,5 +1,9 @@
+axis equal;
+scale = 10; %³ß¶È
+search_radius = 1 ;%ËÑË÷°ë¾¶
 
-scale = 1;
+axis([-scale,scale,-scale,scale]);
+axis equal;
 
 theta = GetTheta(scale);
 
@@ -15,5 +19,11 @@ x2 = rs(:,index+1);
 k = (x2(2)-x1(2))/(x2(1)-x1(1));
 
 %»­ÇÐÏß
-line([rs(1,index) rs(1,index)+300],[rs(2,index) rs(2,index)+k*300]);
-line([rs(1,index) rs(1,index)-300],[rs(2,index) rs(2,index)-k*300]);
+line([rs(1,index) rs(1,index)+3*scale],[rs(2,index) rs(2,index)+k*3*scale]);
+line([rs(1,index) rs(1,index)-3*scale],[rs(2,index) rs(2,index)-k*3*scale]);
+
+
+[ circle ] = GetCircle(rs,rs(:,index),k,search_radius,theta);
+
+
+axis([-scale,scale,-scale,scale]);
