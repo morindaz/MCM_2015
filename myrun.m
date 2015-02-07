@@ -3,7 +3,7 @@ function [ cost , res ] = myrun( scale,search_radius,theta)
 %   Detailed explanation goes here
 
 fprintf('========Begin========\n');
-cost = 0;
+cost = [0 0];
 [rs,u,v,z] = plotBoundary(theta,scale); %获取边界
 %[rs,u,v,z] = CircleBoundary(theta,scale); %获取边界
 %for p = 2 : size(rs,2)-1
@@ -34,6 +34,7 @@ for p = 14:14
 
     [ index ] = OptimAlgorithm( circle , index );
 
+    cost(1) = CalcCost( circle , index ) + calcweight(circle(:,end),circle(:,1)) ;
     plot(circle(1,index),circle(2,index),'c-');
 
     %tt = 0;
@@ -41,9 +42,9 @@ for p = 14:14
         pos = find(index==i);
         tem = index(1:pos);
         res(1,i) = CalcCost( circle , tem );
-        cost =cost + CalcCost( circle , tem );
+        cost(2) =cost(2) + CalcCost( circle , tem );
     end
-    cost = cost / size(circle,2);
+    cost(2) = cost(2) / size(circle,2);
     %fprintf('%.5f\n',tt/size(circle,2));
     %cost = cost + tt;
     pause(0.5);
