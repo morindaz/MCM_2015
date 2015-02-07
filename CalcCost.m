@@ -6,7 +6,7 @@ cost = 0;
 n = size(index,1);
 
 for i = 2 : n
-    cost = cost + calcweight(circle(:,index(i)),circle(:,index(i-1)));
+    cost = cost + calcweight(circle(:,index(i-1)),circle(:,index(i)),circle(:,1));
 end
 
 

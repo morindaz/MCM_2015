@@ -19,10 +19,10 @@ n = size(circle,2);
 flag = 0;
 for i = 1 : n-2 
     for j = i+1 : n-1
-        w_ij = calcweight(circle(:,index(i)),circle(:,index(j)));
-        w_ipjp = calcweight(circle(:,index(i+1)),circle(:,index(j+1)));
-        w_ip = calcweight(circle(:,index(i)),circle(:,index(i+1)));
-        w_jp = calcweight(circle(:,index(j)),circle(:,index(j+1)));
+        w_ij = calcweight(circle(:,index(i)),circle(:,index(j)),circle(:,1));
+        w_ipjp = calcweight(circle(:,index(i+1)),circle(:,index(j+1)),circle(:,1));
+        w_ip = calcweight(circle(:,index(i)),circle(:,index(i+1)),circle(:,1));
+        w_jp = calcweight(circle(:,index(j)),circle(:,index(j+1)),circle(:,1));
         if  w_ij + w_ipjp < w_ip + w_jp
            a=i;
            b=j;

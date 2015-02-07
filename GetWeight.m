@@ -6,7 +6,7 @@ w = zeros(n,n);
 
 for i = 1 : n
     for j = 1 : n
-       w(i,j) = calcweight(circle(:,i),circle(:,j));    
+       w(i,j) = calcweight(circle(:,i),circle(:,j),circle(:,1));    
     end
     
 end

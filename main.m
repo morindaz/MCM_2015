@@ -1,6 +1,6 @@
 
 rec = zeros(0,3);
-for search_radius = 0.05:0.05:1;
+for search_radius = 0.20:0.05:1;
 scale = 1.5; %³ß¶È
 %search_radius = 1 ;%ËÑË÷°ë¾¶
 
@@ -21,5 +21,5 @@ xlabel(['radius=' num2str(search_radius)]);
 %F=getframe(gcf);
 %imwrite(F.cdata,[num2str(search_radius),'.tif'],'tif');
 saveas(gcf,[num2str(search_radius) '.tif'],'tif');
-
+pause;
 end

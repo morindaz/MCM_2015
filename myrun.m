@@ -17,6 +17,7 @@ for p = 14:14
     
     %º∆À„«–œﬂ–±¬ 
     index = p;
+    
     plot(rs(1,index),rs(2,index),'r+');
     x1 = rs(:,index-1);
     x2 = rs(:,index+1);
@@ -34,7 +35,7 @@ for p = 14:14
 
     [ index ] = OptimAlgorithm( circle , index );
 
-    cost(1) = CalcCost( circle , index ) + calcweight(circle(:,end),circle(:,1)) ;
+    cost(1) = CalcCost( circle , index ) + calcweight(circle(:,end),circle(:,1),circle(:,1)) ;
     plot(circle(1,index),circle(2,index),'c-');
 
     %tt = 0;
