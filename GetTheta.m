@@ -3,9 +3,10 @@ function [ theta ] = GetTheta(scale)
 X = [ ];
 y = [ ]';
 for k = 0.1 :0.1: 0.4
-    X =[X; k k;k -k;-k k;-k -k;0 k*1.4;0,-k*1.4;-k*1.4,0;k*1.4 0];
+    X =[X; k k;k -k;-k k;-k -k;0 k;0,-k;-k,0;k 0];
     y =[y;1 ;1 ;1; 1;1;1;1;1];
 end
+
 for k = 0.6 :0.1: 0.9
     X =[X; k k;k -k;-k k;-k -k;0 k;0,-k;-k,0;k 0];
     y =[y;0 ;0 ;0; 0;0;0;0;0];

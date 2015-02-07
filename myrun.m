@@ -1,4 +1,4 @@
-function [ cost ] = myrun( scale,search_radius,theta)
+function [ cost , res ] = myrun( scale,search_radius,theta)
 %MYRUN Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -31,6 +31,7 @@ for p = 14:14
     axis([-scale,scale,-scale,scale]);
 
     [ index ] = Prime( circle );
+
     [ index ] = OptimAlgorithm( circle , index );
 
     plot(circle(1,index),circle(2,index),'c-');
@@ -39,7 +40,7 @@ for p = 14:14
     for i = 1 : size(circle,2)
         pos = find(index==i);
         tem = index(1:pos);
-        res(p,i) = CalcCost( circle , tem );
+        res(1,i) = CalcCost( circle , tem );
         cost =cost + CalcCost( circle , tem );
     end
     cost = cost / size(circle,2);
