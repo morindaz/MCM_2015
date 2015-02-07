@@ -3,7 +3,7 @@ function [ cost ] = CalcCost( circle , index )
 %   Detailed explanation goes here
 
 cost = 0;
-n = size(circle,2);
+n = size(index,1);
 
 for i = 2 : n
     cost = cost + calcweight(circle(:,index(i)),circle(:,index(i-1)));

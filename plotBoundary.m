@@ -1,4 +1,4 @@
-function [C] = plotBoundary(theta,scale)
+function [C,u,v,z] = plotBoundary(theta,scale)
 
 u = linspace(-1, 1, 50)*scale;
 v = linspace(-1, 1, 50)*scale;
