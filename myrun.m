@@ -29,6 +29,14 @@ for p = 14:14
 
     [ circle ] = GetCircle(rs,rs(:,index),k,search_radius,theta);
 
+    di = sqrt(sum((circle-repmat([0;0],1,size(circle,2))).^2));
+    [c,ii] = min(di);
+    
+    tv = circle(:,ii);
+    circle(:,ii) = circle(:,1);
+    circle(:,1) = tv;
+    plot(circle(1,1),circle(2,1),'b*');
+    
     axis([-scale,scale,-scale,scale]);
 
     [ index ] = Prime( circle );
@@ -36,7 +44,7 @@ for p = 14:14
     [ index ] = OptimAlgorithm( circle , index );
 
     cost(1) = CalcCost( circle , index ) + calcweight(circle(:,end),circle(:,1),circle(:,1)) ;
-    plot(circle(1,index),circle(2,index),'c-');
+    plot(circle(1,index),circle(2,index),'c--','LineWidth',2);
 
     %tt = 0;
     for i = 1 : size(circle,2)
