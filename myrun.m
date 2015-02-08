@@ -21,7 +21,7 @@ for p = 14:14
     
     %¼ÆËãÇĞÏßĞ±ÂÊ
     index = p;
-    
+    res.p=p;
     plot(rs(1,index),rs(2,index),'r+');
     x1 = rs(:,index-1);
     x2 = rs(:,index+1);
