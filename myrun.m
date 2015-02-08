@@ -1,4 +1,4 @@
-function [ cost , res ] = myrun( scale,search_radius,theta)
+function [ cost , res ] = myrun( scale,search_radius,theta,R)
 %MYRUN Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -39,7 +39,7 @@ for p = 14:14
     [c,ii] = min(di);
     
     %Ñ¡Æðµã
-    ii = 1;
+    %ii = 1;
     tv = circle(:,ii);
     circle(:,ii) = circle(:,1);
     circle(:,1) = tv;
@@ -61,12 +61,16 @@ for p = 14:14
 
     cost(3) = 0;
     %tt = 0;
+    su = 0;
     for i = 1 : size(circle,2)
         pos = find(index==i);
         tem = index(1:pos);
-        cost(3) =cost(3) + CalcCost( circle , tem );
+       %  cost(3) =cost(3) + CalcCost( circle , tem );
+        cost(3) =cost(3) + CalcCost( circle , tem )*calcGuass(circle(:,pos),R);
+        su = su + calcGuass(circle(:,pos),R);
     end
-    cost(3) = cost(3) / size(circle,2);
+    cost(3) = cost(3) / su;
+    %cost(3) = cost(3) / size(circle,2);
     %fprintf('%.5f\n',tt/size(circle,2));
     %cost = cost + tt;
     

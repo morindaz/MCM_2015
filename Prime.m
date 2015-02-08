@@ -11,7 +11,7 @@ for i = 1 : n-1
     index = [index; p];
     w(:,p) = 1e20;
 end
-index = [index; 1]; %回路
+%index = [index; 1]; %回路
 
 end
 

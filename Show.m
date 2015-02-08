@@ -9,7 +9,7 @@ plot(rec.data(:,1),rec.data(:,3),'r+');
 plot(rec.data(:,1),rec.data(:,4),'b*');
 xlabel('R'); 
 ylabel('Time');
-
+legend('改良前路径','改良后路径','E(t)');
 for i = 1 : length(rec.pro)
     
     
@@ -20,6 +20,7 @@ for i = 1 : length(rec.pro)
    
    
    plot(t.rs(1,t.p),t.rs(2,t.p),'r+');
+   plot(t.circle(1,1),t.circle(2,1),'b*');
    x1 = t.rs(:,t.p-1);
    x2 = t.rs(:,t.p+1);
    k = (x2(2)-x1(2))/(x2(1)-x1(1));
@@ -36,7 +37,7 @@ for i = 1 : length(rec.pro)
    plot(t.circle(1,t.index),t.circle(2,t.index),'c-.','LineWidth',1.6);
    
    axis([-t.scale,t.scale,-t.scale,t.scale]);
-   xlabel(['R=' num2str(t.R)]); 
+   xlabel(['R=' num2str(t.R)],'FontSize',12); 
    pause; 
 end
 
