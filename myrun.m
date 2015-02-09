@@ -1,4 +1,4 @@
-function [ cost , res ] = myrun( scale,search_radius,theta,R)
+function [ cost , res ] = myrun( scale,search_radius,theta)
 %MYRUN Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -35,6 +35,7 @@ for p = 14:14
 
     
     
+<<<<<<< HEAD
     [myc ks] = divideCircle( circle , rs(:,index) ,k,scale , 3 );
     res.circles = myc;
     res.ks = ks;
@@ -42,6 +43,21 @@ for p = 14:14
         circle = res.circles{h};
         di = sqrt(sum((circle-repmat([0;0],1,size(circle,2))).^2));
         [c,ii] = min(di);
+=======
+    di = sqrt(sum((circle-repmat([0;0],1,size(circle,2))).^2));
+    [c,ii] = min(di);
+    
+    %选起点
+    ii = 1;
+    tv = circle(:,ii);
+    circle(:,ii) = circle(:,1);
+    circle(:,1) = tv;
+    plot(circle(1,1),circle(2,1),'b*');
+    
+    res.circle = circle;
+    
+    axis([-scale,scale,-scale,scale]);
+>>>>>>> parent of 93ecfc4... Model 2 娴嬭瘯
 
         %选起点
         ii = 1;
@@ -52,6 +68,7 @@ for p = 14:14
 
         res.circle = circle;
 
+<<<<<<< HEAD
         axis([-scale,scale,-scale,scale]);
 
         [ index ] = Prime( circle );
@@ -78,6 +95,19 @@ for p = 14:14
         %fprintf('%.5f\n',tt/size(circle,2));
         %cost = cost + tt;
     end
+=======
+    cost(3) = 0;
+    %tt = 0;
+    for i = 1 : size(circle,2)
+        pos = find(index==i);
+        tem = index(1:pos);
+        cost(3) =cost(3) + CalcCost( circle , tem );
+    end
+    cost(3) = cost(3) / size(circle,2);
+    %fprintf('%.5f\n',tt/size(circle,2));
+    %cost = cost + tt;
+    
+>>>>>>> parent of 93ecfc4... Model 2 娴嬭瘯
 end
 end
 

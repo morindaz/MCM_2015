@@ -9,7 +9,11 @@ plot(rec.data(:,1),max([rec.data(:,3) rec.data(:,6) rec.data(:,9)],[],2),'r+');
 plot(rec.data(:,1),max([rec.data(:,4) rec.data(:,7) rec.data(:,10)],[],2),'b*');
 xlabel('R'); 
 ylabel('Time');
+<<<<<<< HEAD
 legend('Max(改良前)','Max(改良后路径)','Max(E(t))');
+=======
+
+>>>>>>> parent of 93ecfc4... Model 2 娴嬭瘯
 for i = 1 : length(rec.pro)
     
     
@@ -20,7 +24,6 @@ for i = 1 : length(rec.pro)
    
    
    plot(t.rs(1,t.p),t.rs(2,t.p),'r+');
-   plot(t.circle(1,1),t.circle(2,1),'b*');
    x1 = t.rs(:,t.p-1);
    x2 = t.rs(:,t.p+1);
    k = (x2(2)-x1(2))/(x2(1)-x1(1));
@@ -47,7 +50,7 @@ for c = 1 : length(t.circles)
    
 end
    axis([-t.scale,t.scale,-t.scale,t.scale]);
-   xlabel(['R=' num2str(t.R)],'FontSize',12); 
+   xlabel(['R=' num2str(t.R)]); 
    pause; 
 end
 
