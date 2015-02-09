@@ -1,5 +1,5 @@
 
-rec.data = zeros(0,10);
+rec.data = zeros(0,4);
 rec.pro = cell(0,1);
 %for R = 6:6
 for R = 21-logspace(0,log(20)/log(10),30)
@@ -18,8 +18,8 @@ theta = [-1; -1; R*R];
 
 [cost rec.pro{end+1}]=myrun( scale,search_radius,theta,R);
 
-rec.data(end+1,:) = [R cost{1} cost{2} cost{3}];
-
+rec.data(end+1,:) = [R cost];
+cost
 xlabel(['R=' num2str(R)]); 
 
 %F=getframe(gcf);

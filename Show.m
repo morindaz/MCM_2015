@@ -4,12 +4,12 @@ load rec
 
 figure;
 hold on;
-plot(rec.data(:,1),max([rec.data(:,2) rec.data(:,5) rec.data(:,8)],[],2),'g-.');
-plot(rec.data(:,1),max([rec.data(:,3) rec.data(:,6) rec.data(:,9)],[],2),'r+');
-plot(rec.data(:,1),max([rec.data(:,4) rec.data(:,7) rec.data(:,10)],[],2),'b*');
+plot(rec.data(:,1),rec.data(:,2),'g-.');
+plot(rec.data(:,1),rec.data(:,3),'r+');
+plot(rec.data(:,1),rec.data(:,4),'b*');
 xlabel('R'); 
 ylabel('Time');
-legend('Max(改良前)','Max(改良后路径)','Max(E(t))');
+legend('改良前路径','改良后路径','E(t)');
 for i = 1 : length(rec.pro)
     
     
@@ -27,25 +27,15 @@ for i = 1 : length(rec.pro)
    line([t.rs(1,t.p) t.rs(1,t.p)+3*t.scale],[t.rs(2,t.p) t.rs(2,t.p)+k*3*t.scale]);
    line([t.rs(1,t.p) t.rs(1,t.p)-3*t.scale],[t.rs(2,t.p) t.rs(2,t.p)-k*3*t.scale]);
    
-  
+   for j = 1 : size(t.circle,2)
+      mycircle(t.circle(:,j),t.search_radius) ;
+   end
    
    axis([-t.scale,t.scale,-t.scale,t.scale]);
    axis equal;
-for c = 1 : length(t.circles)   
-    for j = 1 : size(t.circles{c},2)
-      mycircle(t.circles{c}(:,j),t.search_radius) ;
-    end
-    if c>1
-       line([t.rs(1,t.p) t.rs(1,t.p)+3*t.scale],[t.rs(2,t.p) t.rs(2,t.p)+t.ks(c-1)*3*t.scale]);
-       line([t.rs(1,t.p) t.rs(1,t.p)-3*t.scale],[t.rs(2,t.p) t.rs(2,t.p)-t.ks(c-1)*3*t.scale]);
-    end
-    
-   plot(t.circles{c}(1,t.index{c}),t.circles{c}(2,t.index{c}),'c-.','LineWidth',1.6);
    
+   plot(t.circle(1,t.index),t.circle(2,t.index),'c-.','LineWidth',1.6);
    
-  
-   
-end
    axis([-t.scale,t.scale,-t.scale,t.scale]);
    xlabel(['R=' num2str(t.R)],'FontSize',12); 
    pause; 
